@@ -17,6 +17,13 @@ var tempUnit = CONFIG.weatherUnit;
 const KELVIN = 273.15;
 // Use your own key for the Weather, Get it here: https://openweathermap.org/
 const key = `${CONFIG.weatherKey}`;
+const weatherRefreshRate =
+  `${CONFIG.weatherRefresh}` != "0" || undefined
+    ? `${CONFIG.weatherRefresh}`
+    : 15;
+
+// interval to fetch weather
+const weatherInterval = weatherRefreshRate * 60 * 1000;
 
 // Set Position function
 setPosition();
@@ -30,7 +37,11 @@ function getWeather(latitude, longitude) {
   let api = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${key}`;
 
   // console.log(api);
+  fetchWeather(api);
+  setInterval(fetchWeather, weatherInterval, api);
+}
 
+function fetchWeather(api) {
   fetch(api)
     .then(function (response) {
       let data = response.json();
@@ -42,6 +53,9 @@ function getWeather(latitude, longitude) {
         tempUnit == "C" ? celsius : (celsius * 9) / 5 + 32;
       weather.description = data.weather[0].description;
       weather.iconId = data.weather[0].icon;
+      // console.log(
+      //   `${weather.temperature.value}°${tempUnit} ${weather.description}`
+      // );
     })
     .then(function () {
       displayWeather();

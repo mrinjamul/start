@@ -28,6 +28,7 @@ const CONFIG = {
   weatherUnit: "C",
   weatherLatitude: "24.029893",
   weatherLongitude: "88.321410",
+  weatherRefresh: "15", // in Minutes
 
   // ┌─┐┌─┐┬─┐┌┬┐┌─┐
   // │  ├─┤├┬┘ ││└─┐
