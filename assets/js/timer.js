@@ -5,8 +5,17 @@ let title = document.querySelector("title");
 let timeStarts = urlParams.get("time") * 60 || 1500;
 let timeRemaining = timeStarts;
 let running = true;
+running = urlParams.get("running") == "false" ? false : true;
 // running = false; // enable it if you want to start timer manually
 let breakTime = false;
+// voice Assistance
+let voiceAssist = true;
+
+// audios
+var focus_finished = new Audio("assets/audio/focus-finished.wav");
+var break_finished = new Audio("assets/audio/break-finished.wav");
+var sixty_sec_left = new Audio("assets/audio/sixty-seconds-left.wav");
+var thirty_sec_left = new Audio("assets/audio/thirty-seconds-left.wav");
 
 // initial timer update
 updateTimer();
@@ -47,6 +56,15 @@ function updateTimer() {
     time = convertTime(timeRemaining--);
     title.innerHTML = "Start | " + time;
     timer.innerHTML = time;
+    // play audio
+    if (voiceAssist == true) {
+      if (timeRemaining == 60) {
+        sixty_sec_left.play();
+      }
+      if (timeRemaining == 30) {
+        thirty_sec_left.play();
+      }
+    }
   }
 }
 
@@ -83,11 +101,15 @@ function skipForword() {
     timeStarts = 300;
     timeRemaining = timeStarts;
     document.getElementById("timer").className = "breakTime";
+    // play audio
+    if (voiceAssist == true) focus_finished.play();
   } else {
     breakTime = !breakTime;
     timeStarts = 1500;
     timeRemaining = timeStarts;
     document.getElementById("timer").className = "workTime";
+    // play audio
+    if (voiceAssist == true) break_finished.play();
   }
   if (!running) {
     DOMValueSetter(timeRemaining);
