@@ -1,0 +1,32 @@
+name: Deploy
+
+on:
+  push:
+    # branches: [ "main","master" ]
+    # Publish  tags as releases.
+    tags: ["v*.*.*"]
+  # This command allows us to run the Action manually from the Actions tab.
+  workflow_dispatch:
+
+jobs:
+
+  deploy:
+    name: Deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@master
+      - name: Get Firebaserc
+        run: echo "$FIREBASERC" > .firebaserc
+        env:
+          FIREBASERC: ${{ secrets.FIREBASERC }}
+      - name: Get firebase.json
+        run: echo "$FIREBASE" > firebase.json
+        env:
+          FIREBASE: ${{ secrets.FIREBASE }}
+      - name: Deploy to Firebase
+        uses: w9jds/firebase-action@master
+        with:
+          args: deploy --only hosting
+        env:
+          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
