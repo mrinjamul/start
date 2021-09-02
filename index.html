@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <title>Start</title>
+    <link rel="manifest" href="manifest.json" />
     <link
       rel=" shortcut icon"
       type="image/png"
@@ -102,6 +103,15 @@
     <script src="assets/js/lists.js"></script>
     <script>
       feather.replace();
+    </script>
+    <script>
+      if (!navigator.serviceWorker.controller) {
+        navigator.serviceWorker.register("/sw.js").then(function (reg) {
+          console.log(
+            "Service worker has been registered for scope: " + reg.scope
+          );
+        });
+      }
     </script>
   </body>
 </html>

@@ -1,0 +1,16 @@
+{
+  "name": "Start",
+  "short_name": "Start",
+  "theme_color": "#2196f3",
+  "background_color": "#000000",
+  "display": "standalone",
+  "scope": "/",
+  "start_url": "/",
+  "orientation": "any",
+  "icons": [
+    {
+      "src": "assets/icons/favicon.png",
+      "sizes": "153x153"
+    }
+  ]
+}
