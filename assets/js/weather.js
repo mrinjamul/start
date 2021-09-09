@@ -29,12 +29,30 @@ const weatherInterval = weatherRefreshRate * 60 * 1000;
 setPosition();
 
 function setPosition(position) {
-  getWeather(CONFIG.weatherLatitude, CONFIG.weatherLongitude);
+  if (!CONFIG.trackLocation || !navigator.geolocation) {
+    if (CONFIG.trackLocation) {
+      console.error("Geolocation not available");
+    }
+    getWeather(CONFIG.defaultLatitude, CONFIG.defaultLongitude);
+    return;
+  }
+  navigator.geolocation.getCurrentPosition(
+    (pos) => {
+      getWeather(
+        pos.coords.latitude.toFixed(3),
+        pos.coords.longitude.toFixed(3)
+      );
+    },
+    (err) => {
+      console.error(err);
+      getWeather(CONFIG.defaultLatitude, CONFIG.defaultLongitude);
+    }
+  );
 }
 
 // Get the Weather data
 function getWeather(latitude, longitude) {
-  let api = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${key}`;
+  let api = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&lang=${CONFIG.language}&appid=${key}`;
 
   // console.log(api);
   fetchWeather(api);

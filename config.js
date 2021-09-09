@@ -1,6 +1,3 @@
-// ╔╗ ╔═╗╔╗╔╔╦╗╔═╗
-// ╠╩╗║╣ ║║║ ║ ║ ║
-// ╚═╝╚═╝╝╚╝ ╩ ╚═╝
 // ┌─┐┌─┐┌┐┌┌─┐┬┌─┐┬ ┬┬─┐┌─┐┌┬┐┬┌─┐┌┐┌
 // │  │ ││││├┤ ││ ┬│ │├┬┘├─┤ │ ││ ││││
 // └─┘└─┘┘└┘└  ┴└─┘└─┘┴└─┴ ┴ ┴ ┴└─┘┘└┘
@@ -26,9 +23,11 @@ const CONFIG = {
   weatherKey: "16970d96340183a57168d2024aa34679",
   weatherIcons: "OneDark", // 'Nord', 'Dark', 'White'
   weatherUnit: "C",
-  weatherLatitude: "24.029893",
-  weatherLongitude: "88.321410",
   weatherRefresh: "15", // in Minutes
+  language: "en", // More languages in https://openweathermap.org/current#multi
+  trackLocation: true, // If false or an error occurs, the app will use the lat/lon below
+  defaultLatitude: "24.029893",
+  defaultLongitude: "88.321410",
 
   // ┌─┐┌─┐┬─┐┌┬┐┌─┐
   // │  ├─┤├┬┘ ││└─┐
