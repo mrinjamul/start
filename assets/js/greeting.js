@@ -22,7 +22,7 @@ function greet() {
   const today = new Date();
   const hour = today.getHours();
   // Define the hours of the greetings
-  if (hour >= 23 && hour < 5) {
+  if (hour >= 23 || hour < 5) {
     document.getElementById("greetings").innerText = gree1 + name;
   } else if (hour >= 6 && hour < 12) {
     document.getElementById("greetings").innerText = gree2 + name;
