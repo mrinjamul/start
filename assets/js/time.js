@@ -1,6 +1,7 @@
 // ┌┬┐┬┌┬┐┌─┐
 //  │ ││││├┤
 //  ┴ ┴┴ ┴└─┘
+// Set time and Date
 
 window.onload = displayClock();
 // Clock function

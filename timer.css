@@ -4,16 +4,16 @@
 
 timer {
   cursor: pointer;
-  font-size: var(--fsm);
+  font-size: var(--fg-date);
   font-weight: bold;
   color: var(--fg);
 }
 
 .reset-btn {
   cursor: pointer;
-  width: var(--iconsize);
-  height: var(--iconsize);
-  color: var(--bg);
+  width: var(--icon);
+  height: var(--icon);
+  color: var(--background);
 }
 .reset-btn:hover {
   color: var(--accent);

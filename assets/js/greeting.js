@@ -1,6 +1,7 @@
 // ┌─┐┬─┐┌─┐┌─┐┌┬┐┬┌┐┌┌─┐┌─┐
 // │ ┬├┬┘├┤ ├┤  │ │││││ ┬└─┐
 // └─┘┴└─└─┘└─┘ ┴ ┴┘└┘└─┘└─┘
+// Function to set Greetings
 
 // Here you can change your name
 const name = CONFIG.name;
