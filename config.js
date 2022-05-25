@@ -175,10 +175,6 @@ const CONFIG = {
           link: "https://drive.google.com/",
         },
         {
-          name: "Reddit",
-          link: "https://www.reddit.com/",
-        },
-        {
           name: "WhatsApp",
           link: "https://web.whatsapp.com/",
         },
