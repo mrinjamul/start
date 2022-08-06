@@ -38,6 +38,20 @@ themeToggle.addEventListener("click", () => {
   }
 });
 
+document.addEventListener("keyup", function (event) {
+  event = event || window.event;
+  // if "t" or "T" is pressed then toggle theme
+  if (event.keyCode == 116 || event.keyCode == 84) {
+    console.log("T pressed");
+    darkTheme = localStorage.getItem("darkTheme");
+    if (darkTheme !== "enabled") {
+      enableDark();
+    } else {
+      disableDark();
+    }
+  }
+});
+
 if (CONFIG.imageBackground) {
   document.body.classList.add("withImageBackground");
 }
