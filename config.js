@@ -138,11 +138,11 @@ const CONFIG = {
       links: [
         {
           name: "Lo-Fi Beats to Study",
-          link: "https://youtu.be/5qap5aO4i9A",
+          link: "https://youtu.be/jfKfPfyJRdk",
         },
         {
           name: "Lo-Fi Beats to Chill",
-          link: "https://youtu.be/DWcJFNfaw9c",
+          link: "https://youtu.be/rUxyKA_-grg",
         },
         {
           name: "1 AM Study Session",
@@ -190,11 +190,11 @@ const CONFIG = {
       links: [
         {
           name: "Lo-Fi Beats to Study",
-          link: "https://youtu.be/5qap5aO4i9A",
+          link: "https://youtu.be/jfKfPfyJRdk",
         },
         {
           name: "Lo-Fi Beats to Chill",
-          link: "https://youtu.be/DWcJFNfaw9c",
+          link: "https://youtu.be/rUxyKA_-grg",
         },
         {
           name: "1 AM Study Session",
