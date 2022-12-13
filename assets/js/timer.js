@@ -4,6 +4,7 @@ let title = document.querySelector("title");
 // states
 let timeStarts = urlParams.get("time") * 60 || 1500;
 let timeRemaining = timeStarts;
+let sessionCounter = 1;
 let running = true;
 running = urlParams.get("running") == "false" ? false : true;
 // running = false; // enable it if you want to start timer manually
@@ -16,6 +17,8 @@ var focus_finished = new Audio("assets/audio/focus-finished.wav");
 var break_finished = new Audio("assets/audio/break-finished.wav");
 var sixty_sec_left = new Audio("assets/audio/sixty-seconds-left.wav");
 var thirty_sec_left = new Audio("assets/audio/thirty-seconds-left.wav");
+var session_completed = new Audio("assets/audio/session-completed.wav");
+var special_break_started = new Audio("assets/audio/special-break-started.wav");
 
 // initial timer update
 updateTimer();
@@ -53,7 +56,7 @@ function updateTimer() {
     skipForword();
   }
   if (running) {
-    time = convertTime(timeRemaining--);
+    let time = convertTime(timeRemaining--);
     title.innerHTML = "Start | " + time;
     timer.innerHTML = time;
     // play audio
@@ -97,19 +100,39 @@ function resetTimer() {
 // Skip timer to next
 function skipForword() {
   if (breakTime == false) {
+    let sessionFlag = false;
     breakTime = !breakTime;
     timeStarts = 300;
+    if (sessionCounter == 4) {
+      timeStarts = 900;
+      sessionCounter = 0;
+      sessionFlag = true;
+    }
     timeRemaining = timeStarts;
     document.getElementById("timer").className = "breakTime";
     // play audio
-    if (voiceAssist == true) focus_finished.play();
+    if (voiceAssist == true) {
+      if (sessionFlag == true) {
+        special_break_started.play();
+        sessionFlag = false;
+      } else {
+        focus_finished.play();
+      }
+    }
   } else {
     breakTime = !breakTime;
     timeStarts = 1500;
     timeRemaining = timeStarts;
+    sessionCounter++;
     document.getElementById("timer").className = "workTime";
     // play audio
-    if (voiceAssist == true) break_finished.play();
+    if (voiceAssist == true) {
+      if (sessionCounter == 1) {
+        session_completed.play();
+      } else {
+        break_finished.play();
+      }
+    }
   }
   if (!running) {
     DOMValueSetter(timeRemaining);
