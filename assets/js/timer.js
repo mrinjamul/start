@@ -13,12 +13,38 @@ let breakTime = false;
 let voiceAssist = true;
 
 // audios
+/*
 var focus_finished = new Audio("assets/audio/focus-finished.wav");
 var break_finished = new Audio("assets/audio/break-finished.wav");
 var sixty_sec_left = new Audio("assets/audio/sixty-seconds-left.wav");
 var thirty_sec_left = new Audio("assets/audio/thirty-seconds-left.wav");
 var session_completed = new Audio("assets/audio/session-completed.wav");
 var special_break_started = new Audio("assets/audio/special-break-started.wav");
+*/
+var focus_finished = new Howl({
+  src: ["assets/audio/focus-finished.wav"],
+  html5: true,
+});
+var break_finished = new Howl({
+  src: ["assets/audio/break-finished.wav"],
+  html5: true,
+});
+var sixty_sec_left = new Howl({
+  src: ["assets/audio/sixty-seconds-left.wav"],
+  html5: true,
+});
+var thirty_sec_left = new Howl({
+  src: ["assets/audio/thirty-seconds-left.wav"],
+  html5: true,
+});
+var session_completed = new Howl({
+  src: ["assets/audio/session-completed.wav"],
+  html5: true,
+});
+var special_break_started = new Howl({
+  src: ["assets/audio/special-break-started.wav"],
+  html5: true,
+});
 
 // initial timer update
 updateTimer();

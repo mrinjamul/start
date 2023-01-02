@@ -4,3 +4,5 @@ package-lock.json
 .github*
 CODE_OF_CONDUCT.md
 *feather.min.js*
+*.min.js*
+*.min.css*
