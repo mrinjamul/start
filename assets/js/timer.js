@@ -15,6 +15,11 @@ let voiceAssist = true;
 // audios
 var focus_finished = new Howl({
   src: ["assets/audio/focus-finished.webm", "assets/audio/focus-finished.mp3"],
+  onplayerror: function () {
+    focus_finished.once("unlock", function () {
+      focus_finished.play();
+    });
+  },
   html5: true,
 });
 var break_finished = new Howl({
