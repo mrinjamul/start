@@ -13,36 +13,40 @@ let breakTime = false;
 let voiceAssist = true;
 
 // audios
-/*
-var focus_finished = new Audio("assets/audio/focus-finished.wav");
-var break_finished = new Audio("assets/audio/break-finished.wav");
-var sixty_sec_left = new Audio("assets/audio/sixty-seconds-left.wav");
-var thirty_sec_left = new Audio("assets/audio/thirty-seconds-left.wav");
-var session_completed = new Audio("assets/audio/session-completed.wav");
-var special_break_started = new Audio("assets/audio/special-break-started.wav");
-*/
 var focus_finished = new Howl({
-  src: ["assets/audio/focus-finished.wav"],
+  src: ["assets/audio/focus-finished.webm", "assets/audio/focus-finished.mp3"],
   html5: true,
 });
 var break_finished = new Howl({
-  src: ["assets/audio/break-finished.wav"],
+  src: ["assets/audio/break-finished.webm", "assets/audio/break-finished.mp3"],
   html5: true,
 });
 var sixty_sec_left = new Howl({
-  src: ["assets/audio/sixty-seconds-left.wav"],
+  src: [
+    "assets/audio/sixty-seconds-left.webm",
+    "assets/audio/sixty-seconds-left.mp3",
+  ],
   html5: true,
 });
 var thirty_sec_left = new Howl({
-  src: ["assets/audio/thirty-seconds-left.wav"],
+  src: [
+    "assets/audio/thirty-seconds-left.webm",
+    "assets/audio/thirty-seconds-left.mp3",
+  ],
   html5: true,
 });
 var session_completed = new Howl({
-  src: ["assets/audio/session-completed.wav"],
+  src: [
+    "assets/audio/session-completed.webm",
+    "assets/audio/session-completed.mp3",
+  ],
   html5: true,
 });
 var special_break_started = new Howl({
-  src: ["assets/audio/special-break-started.wav"],
+  src: [
+    "assets/audio/special-break-started.webm",
+    "assets/audio/special-break-started.mp3",
+  ],
   html5: true,
 });
 

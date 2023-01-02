@@ -1,96 +1,102 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Start</title>
+    <link
+      rel=" shortcut icon"
+      type="image/png"
+      href="assets/icons/favicon.png"
+    />
+    <link rel="stylesheet" href="app.css" />
+    <link rel="stylesheet" href="timer.css" />
+    <script src="assets/js/lucide.min.js"></script>
+    <!-- <script src="https://unpkg.com/lucide@latest"></script> -->
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <title>Start</title>
-  <link rel=" shortcut icon" type="image/png" href="assets/icons/favicon.png" />
-  <link rel="stylesheet" href="app.css" />
-  <link rel="stylesheet" href="timer.css" />
-  <script src="assets/js/lucide.min.js"></script>
-  <!-- <script src="https://unpkg.com/lucide@latest"></script> -->
-</head>
+  <!-- Start -->
 
-<!-- Start -->
+  <body class="">
+    <button id="themeButton">
+      <i id="themeIcon" icon-name="moon"></i>
+    </button>
+    <div class="container">
+      <!-- Clock and Greetings  -->
 
-<body class="">
-  <button id="themeButton">
-    <i id="themeIcon" icon-name="moon"></i>
-  </button>
-  <div class="container">
-    <!-- Clock and Greetings  -->
-
-    <div class="timeBlock">
-      <div class="clock">
-        <div id="hour"></div>
-        <div id="separator"></div>
-        <div id="minutes"></div>
+      <div class="timeBlock">
+        <div class="clock">
+          <div id="hour"></div>
+          <div id="separator"></div>
+          <div id="minutes"></div>
+        </div>
+        <div id="greetings"></div>
+        <br />
+        <div class="timer">
+          <timer id="timer" class="workTime"></timer>
+          <i class="reset-btn" icon-name="rotate-cw" onclick="resetTimer()"></i>
+          <i
+            class="reset-btn"
+            icon-name="skip-forward"
+            onclick="skipForword()"
+          ></i>
+        </div>
       </div>
-      <div id="greetings"></div>
-      <br />
-      <div class="timer">
-        <timer id="timer" class="workTime"></timer>
-        <i class="reset-btn" icon-name="rotate-cw" onclick="resetTimer()"></i>
-        <i class="reset-btn" icon-name="skip-forward" onclick="skipForword()"></i>
+
+      <!-- Date and Weather  -->
+
+      <div class="weatherBlock">
+        <div class="date">
+          <div id="month"></div>
+          <div id="day"></div>
+        </div>
+        <div class="weather">
+          <div class="weatherIcon">
+            <img src="assets/icons/OneDark/unknown.png" />
+          </div>
+          <div class="weatherValue">
+            <p>- °<span class="g">c</span></p>
+          </div>
+          <div class="weatherDescription">
+            <p></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="linksBlock" id="linksBlock">
+        <div class="linksBlockLeft" id="linksBlockLeft"></div>
+        <div class="linksBlockRight" id="linksBlockRight"></div>
       </div>
     </div>
 
-    <!-- Date and Weather  -->
+    <!-- Config  -->
+    <script src="config.js"></script>
 
-    <div class="weatherBlock">
-      <div class="date">
-        <div id="month"></div>
-        <div id="day"></div>
-      </div>
-      <div class="weather">
-        <div class="weatherIcon">
-          <img src="assets/icons/OneDark/unknown.png" />
-        </div>
-        <div class="weatherValue">
-          <p>- °<span class="g">c</span></p>
-        </div>
-        <div class="weatherDescription">
-          <p></p>
-        </div>
-      </div>
-    </div>
+    <!-- Scripts  -->
+    <script src="assets/js/layout.js"></script>
+    <script src="assets/js/theme.js"></script>
+    <script src="assets/js/time.js"></script>
+    <script src="assets/js/greeting.js"></script>
+    <script src="assets/js/weather.js"></script>
+    <!-- Add audio libs -->
+    <script src="assets/js/howler.min.js"></script>
+    <script src="assets/js/timer.js"></script>
 
-    <div class="linksBlock" id="linksBlock">
-      <div class="linksBlockLeft" id="linksBlockLeft"></div>
-      <div class="linksBlockRight" id="linksBlockRight"></div>
-    </div>
-  </div>
+    <!-- Generators  -->
+    <script src="assets/js/buttons.js"></script>
+    <script src="assets/js/lists.js"></script>
 
-  <!-- Config  -->
-  <script src="config.js"></script>
-
-  <!-- Scripts  -->
-  <script src="assets/js/layout.js"></script>
-  <script src="assets/js/theme.js"></script>
-  <script src="assets/js/time.js"></script>
-  <script src="assets/js/greeting.js"></script>
-  <script src="assets/js/weather.js"></script>
-  <!-- Add audio libs -->
-  <script src="assets/js/howler.min.js"></script>
-  <script src="assets/js/timer.js"></script>
-
-  <!-- Generators  -->
-  <script src="assets/js/buttons.js"></script>
-  <script src="assets/js/lists.js"></script>
-
-  <!-- Icons -->
-  <script>
-    lucide.createIcons();
-  </script>
-  <script>
-    if (!navigator.serviceWorker.controller) {
-      navigator.serviceWorker.register("/sw.js").then(function (reg) {
-        console.log(
-          "Service worker has been registered for scope: " + reg.scope
-        );
-      });
-    }
-  </script>
-</body>
-
+    <!-- Icons -->
+    <script>
+      lucide.createIcons();
+    </script>
+    <script>
+      if (!navigator.serviceWorker.controller) {
+        navigator.serviceWorker.register("/sw.js").then(function (reg) {
+          console.log(
+            "Service worker has been registered for scope: " + reg.scope
+          );
+        });
+      }
+    </script>
+  </body>
 </html>
