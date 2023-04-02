@@ -25,7 +25,7 @@ function displayClock() {
   var d = new Date();
   var mm = monthNames[d.getMonth()];
   var dd = d.getDate();
-  var min = (mins = ("0" + d.getMinutes()).slice(-2));
+  var min = d.getMinutes();
   var hh = d.getHours();
   var ampm = "";
 
@@ -34,6 +34,14 @@ function displayClock() {
     ampm = hh >= 12 ? " pm" : " am";
     hh = hh % 12;
     hh = hh ? hh : 12;
+  }
+
+  // Clock format
+  if (hh < 10) {
+    hh = "0" + hh;
+  }
+  if (min < 10) {
+    min = "0" + min;
   }
 
   // Display clock elements
