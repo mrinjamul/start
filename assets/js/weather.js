@@ -6,6 +6,7 @@
 const iconElement = document.querySelector(".weatherIcon");
 const tempElement = document.querySelector(".weatherValue p");
 const descElement = document.querySelector(".weatherDescription p");
+const locElement = document.querySelector(".locationName p");
 
 // App data
 const weather = {};
@@ -71,6 +72,7 @@ function fetchWeather(api) {
       weather.temperature.value =
         tempUnit == "C" ? celsius : (celsius * 9) / 5 + 32;
       weather.description = data.weather[0].description;
+      weather.location = data.name;
       weather.iconId = data.weather[0].icon;
       // console.log(
       //   `${weather.temperature.value}°${tempUnit} ${weather.description}`
@@ -88,4 +90,5 @@ function displayWeather() {
     0
   )}°<span class="darkfg">${tempUnit}</span>`;
   descElement.innerHTML = weather.description;
+  locElement.innerHTML = weather.location;
 }
